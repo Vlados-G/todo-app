@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase, Mapped, mapped_column,
 
 DATABASE_URL = "postgresql+psycopg2://postgres:123@localhost:5432/postgres"
 engine = create_engine(DATABASE_URL)
-Sessionlocal = sessionmaker(bind=engine)
+SessionLocal = sessionmaker(bind=engine)
 
 class Base(DeclarativeBase):
     id: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid4()))
@@ -51,7 +51,7 @@ class TaskUpdateSchema(BaseModel):
 
 
 def get_database():
-    database = Sessionlocal()
+    database = SessionLocal()
     try:
         yield database
     finally:
