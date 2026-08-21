@@ -2,12 +2,16 @@
 /node_modules
 /.pnp
 .pnp.js
+.idea
+.venv
 
 # testing
 /coverage
 
 # production
 /build
+*.pyc
+__pycache__
 
 # misc
 .DS_Store
